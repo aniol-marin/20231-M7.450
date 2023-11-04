@@ -1,0 +1,11 @@
+using Mole.Halt.Utils;
+
+namespace Mole.Halt.GameLogicLayer.Internal
+{
+    public class #SCRIPTNAME# : GameEvent
+    {
+        public #SCRIPTNAME#()
+        {
+        }
+    }
+}

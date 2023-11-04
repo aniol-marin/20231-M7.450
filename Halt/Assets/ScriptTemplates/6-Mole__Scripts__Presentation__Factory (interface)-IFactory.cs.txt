@@ -1,0 +1,7 @@
+namespace Mole.Halt.PresentationLayer
+{
+    public interface #SCRIPTNAME#
+    {
+        
+    }
+}

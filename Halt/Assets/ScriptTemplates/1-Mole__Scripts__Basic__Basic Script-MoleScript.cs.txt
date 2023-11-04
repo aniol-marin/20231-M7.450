@@ -1,0 +1,6 @@
+namespace Mole.Uncategorized
+{
+    public class #SCRIPTNAME#
+    {
+    }
+}

@@ -1,0 +1,8 @@
+namespace Mole.Halt.DataLayer
+{
+    public enum #SCRIPTNAME#
+    {
+        invalid = default,
+
+    }
+}

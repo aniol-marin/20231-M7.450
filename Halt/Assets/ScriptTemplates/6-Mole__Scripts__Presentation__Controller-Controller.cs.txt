@@ -1,0 +1,11 @@
+using Mole.Halt.ApplicationLayer;
+
+namespace Mole.Halt.PresentationLayer
+{
+    public class #SCRIPTNAME# : ControllerNode
+    {
+        public override void Deinit()
+        {
+        }
+    }
+}

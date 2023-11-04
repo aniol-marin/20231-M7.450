@@ -1,0 +1,15 @@
+using Mole.Halt.Utils;
+
+namespace Mole.Halt.GameLogicLayer
+{
+    public class #SCRIPTNAME# : Initializable
+    {
+        public void Init()
+        {
+        }
+
+        public void Deinit()
+        {
+        }
+    }
+}
