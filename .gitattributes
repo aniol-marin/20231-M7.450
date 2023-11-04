@@ -7,3 +7,4 @@
 *.wav filter=lfs diff=lfs merge=lfs -text
 #Specific folder rules
 **/Components/**/*.asset filter=lfs diff=lfs merge=lfs -text
+**/NavMesh/**/*.asset filter=lfs diff=lfs merge=lfs -text

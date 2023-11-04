@@ -4,21 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - environment
-  - Fire
-  - interactable
+  - Character
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Characters
+  - 
   - Water
   - UI
-  - Walkable Environment
-  - Non-Walkable Environment
-  - PostProcessing
-  - Collectibles
+  - Entities
+  - Environment
+  - 
+  - 
   - 
   - 
   - 
