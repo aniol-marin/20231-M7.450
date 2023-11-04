@@ -1,0 +1,28 @@
+{
+    "name": "Mole.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22423cafc2250c04db4230971cb23173",
+        "GUID:e3d001121b6cd32409258e738a1d4f9a",
+        "GUID:3030e67f1b259f14ca06380956227797",
+        "GUID:13a405fe3b4ea89479874010f89bc971",
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25",
+        "GUID:ec389836fa60e1d4fbe404c9c3a22099",
+        "GUID:8c4dd21966739024fbd72155091d199e",
+        "GUID:86c9d8e67265f41469be06142c397d17",
+        "GUID:f2fbff4d08dd73249a8385a3058f7536"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

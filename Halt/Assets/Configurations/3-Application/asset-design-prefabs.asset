@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f087163c5e12e094fb333d24c296bbf0, type: 3}
+  m_Name: asset-design-prefabs
+  m_EditorClassIdentifier: 
+  menuOptionView: {fileID: 3274982431431864094, guid: e1b1c80e9268f9c4b89b22335edb0b7b, type: 3}
+  LevelOptionView: {fileID: 6341752308729891562, guid: bbf71bf641278764fa584ff8aac0cce3, type: 3}
+  MockCharacter: {fileID: 5324560266177500466, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
+  DebugEntityWidgetTile: {fileID: 4227176703813040588, guid: ca95767e780141b4ca1cd4c1470e6407, type: 3}

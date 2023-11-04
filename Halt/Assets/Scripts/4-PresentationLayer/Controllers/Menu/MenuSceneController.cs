@@ -1,34 +1,28 @@
-using Mole.Halt.PresentationLayer;
-using UnityEngine;
-using Zenject;
+using Mole.Halt.ApplicationLayer;
+using Mole.Halt.Utils;
 
-namespace Mole.Halt.ApplicationLayer
+namespace Mole.Halt.PresentationLayer
 {
-    public class MenuSceneController : MonoBehaviour
+    public class MenuSceneController : ControllerNode
     {
-        [Inject] private readonly DiContainer diContainer;
-        [Inject] private readonly SceneInitializer initializer;
-        [Inject] private readonly SceneFinalizer finalizer;
-        [Inject] private readonly ScreensData screenProvider;
-        [SerializeField] private Transform screenContainer;
+        [Injected] private readonly Navigation navigation;
+        [Injected] private readonly SceneInitializer initializer;
 
-        private void Awake()
+        public override void Init()
         {
-            initializer.OnSceneInitialized += MockFirstScreen;
+            base.Init();
 
-            initializer.InitializeScene();
+            initializer.OnSceneInitialized += MockFirstScreenNavigation;
         }
 
-        private void OnDestroy()
+        public override void Deinit()
         {
-            finalizer.FinalizeScene();
+
         }
 
-        private void MockFirstScreen()
+        private void MockFirstScreenNavigation()
         {
-            MenuScreen firstScreen = diContainer.InstantiatePrefabForComponent<MenuScreen>(screenProvider.GetScreenPrefab(PresentationLayer.Models.ScreenId.Main), screenContainer);
-            firstScreen.Init();
-            firstScreen.Enter();
+            navigation.NavigateTo(ScreenId.Main);
         }
     }
 }

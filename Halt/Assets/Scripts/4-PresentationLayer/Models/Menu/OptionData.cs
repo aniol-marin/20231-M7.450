@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mole.Halt.PresentationLayer.Models
+namespace Mole.Halt.PresentationLayer
 {
     [CreateAssetMenu(menuName = "Mole/Menu Option Model")]
     public class OptionData : ScriptableObject
@@ -19,5 +18,8 @@ namespace Mole.Halt.PresentationLayer.Models
     {
         Play = 1,
         Quit = 2,
+        Back = 3,
+        Settings = 4,
+        Levels = 5,
     }
 }

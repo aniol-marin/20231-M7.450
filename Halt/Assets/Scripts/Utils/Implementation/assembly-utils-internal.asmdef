@@ -1,0 +1,16 @@
+{
+    "name": "Mole.Utils.Internal",
+    "rootNamespace": "",
+    "references": [
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Mole.GameLogic.Internal",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22423cafc2250c04db4230971cb23173",
+        "GUID:e3d001121b6cd32409258e738a1d4f9a",
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25",
+        "GUID:33b1de0ec0112cf4a949ecfe16e63196"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

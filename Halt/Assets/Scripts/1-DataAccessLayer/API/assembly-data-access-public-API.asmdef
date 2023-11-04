@@ -1,0 +1,17 @@
+{
+    "name": "Mole.DataAccess",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22423cafc2250c04db4230971cb23173",
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

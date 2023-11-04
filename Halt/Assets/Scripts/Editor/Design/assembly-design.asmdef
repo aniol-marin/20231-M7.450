@@ -1,0 +1,24 @@
+{
+    "name": "assembly-design",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22423cafc2250c04db4230971cb23173",
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25",
+        "GUID:e3d001121b6cd32409258e738a1d4f9a",
+        "GUID:33b1de0ec0112cf4a949ecfe16e63196",
+        "GUID:3030e67f1b259f14ca06380956227797",
+        "GUID:13a405fe3b4ea89479874010f89bc971",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

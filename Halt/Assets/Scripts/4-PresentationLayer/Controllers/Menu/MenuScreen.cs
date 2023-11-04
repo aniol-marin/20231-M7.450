@@ -1,22 +1,19 @@
 using Mole.Halt.ApplicationLayer;
-using Mole.Halt.PresentationLayer.Models;
-using UnityEngine;
 
-public abstract class MenuScreen : MonoBehaviour, Initializable
+namespace Mole.Halt.PresentationLayer
 {
-    abstract public ScreenId ScreenType { get; }
-
-    abstract public void Init();
-    abstract public void Deinit();
-
-    public virtual void Enter()
+    public abstract class MenuScreen : ControllerNode
     {
-        gameObject.SetActive(true);
-    }
+        abstract public ScreenId ScreenType { get; }
 
-    public virtual void Leave()
-    {
-        gameObject.SetActive(false);
-    }
+        public virtual void Enter()
+        {
+            ToggleVisuals(true);
+        }
 
+        public virtual void Leave()
+        {
+            ToggleVisuals(false);
+        }
+    }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85323d9f288514e48b885b6ebfe7fbb9, type: 3}
+  m_Name: asset-config-installer-data-access
+  m_EditorClassIdentifier: 
+  characterRepository: {fileID: 11400000, guid: 4f0b0fdbb88abbd499556838267db061, type: 2}
+  objectRepository: {fileID: 11400000, guid: bb4301e934dd71745bfb65d615aac40a, type: 2}
+  wiringData: {fileID: 11400000, guid: 5389b3f601043894590760f25fa8dd20, type: 2}

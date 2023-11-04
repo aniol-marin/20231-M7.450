@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23984b17541f04e438699964ea4df1ee, type: 3}
+  m_Name: asset-config-wiring
+  m_EditorClassIdentifier: 
+  wirings:
+  - {fileID: 11400000, guid: 344ace038ee8bad49b79bbd1be6435cb, type: 2}
+  - {fileID: 11400000, guid: 96ac142c3c8f9ec419c75aef179f83c5, type: 2}
+  - {fileID: 11400000, guid: f82bc31354c64654cb60200c4d93fa36, type: 2}

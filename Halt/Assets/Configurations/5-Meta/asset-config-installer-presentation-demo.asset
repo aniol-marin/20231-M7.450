@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6c4273922c69b4d83a4d36402e844a, type: 3}
+  m_Name: asset-config-installer-presentation-demo
+  m_EditorClassIdentifier: 
+  characterPrefabs: {fileID: 11400000, guid: 7db61d01fad1beb4a89d26185a5adae5, type: 2}
+  screensData: {fileID: 11400000, guid: e185c7255829696488038adddbbae3c9, type: 2}

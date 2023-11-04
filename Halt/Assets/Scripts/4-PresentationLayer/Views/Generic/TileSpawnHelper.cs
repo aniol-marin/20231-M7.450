@@ -1,98 +1,97 @@
-using Mole.Halt.Utils.Extensions;
-using System;
+using Mole.Halt.ApplicationLayer;
+using Mole.Halt.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Zenject;
 
-public class TileSpawnHelper<T, U>
-    where T : MonoBehaviour
-    where U : struct
+namespace Mole.Halt.PresentationLayer
 {
-    private readonly DiContainer diContainer;
-    private readonly GameObject prefab;
-    private readonly Transform parent;
-    private readonly List<T> container;
-    private readonly Action<T> initTile;
-    private readonly Action<T, U> updateTile;
-    private readonly Action<T, bool> onTileToggle;
-
-    public TileSpawnHelper(
-        T prefab, Transform parent, List<T> container,
-        DiContainer diContainer,
-        Action<T, U> updateTile,
-        Action<T, bool> onTileToggle,
-        Action<T> initTile = null)
+    public class TileSpawnHelper<T, U>
+        where T : ViewNode
+        where U : struct
     {
-        this.prefab = prefab.gameObject;
-        this.parent = parent;
-        this.container = container;
-        this.diContainer = diContainer;
-        this.initTile = initTile;
-        this.updateTile = updateTile;
-        this.onTileToggle = onTileToggle;
-    }
+        private readonly IPrefabFactory factory;
+        private readonly Transform parent;
+        private readonly IList<T> container;
+        private readonly Callback<T> initTile;
+        private readonly Callback<T, U> updateTile;
+        private readonly Callback<T, bool> onTileToggle;
 
-    public void PopulateTiles(in IEnumerable<U> data)
-    {
-        HandleRequestSize(data);
+        public TileSpawnHelper(
+            IPrefabFactory factory,
+            Transform parent,
+            IList<T> container,
+            Callback<T, U> updateTile,
+            Callback<T, bool> onTileToggle,
+            Callback<T> initTile = null)
+        {
+            this.factory = factory;
+            this.parent = parent;
+            this.container = container;
+            this.initTile = initTile;
+            this.updateTile = updateTile;
+            this.onTileToggle = onTileToggle;
+        }
 
-        int provIndex = 0;
-        data
-            .Select(d => new StructToClass<U>(d))
-            .ForEach(e  =>
-            {
-                updateTile(container.ElementAt(provIndex), (U)e.Content);
-                ++provIndex;
-            });
+        public void PopulateTiles(in IEnumerable<U> data)
+        {
+            HandleRequestSize(data);
+
+            int provIndex = 0;
+            data
+                .Select(d => new StructToClass<U>(d))
+                .ForEach(e =>
+                {
+                    updateTile(container.ElementAt(provIndex), (U)e.Content);
+                    ++provIndex;
+                });
             //.ForEach((e, i) => updateTile(container.ElementAt(i), (U)e.Content));
-    }
-
-    private void HandleRequestSize(in IEnumerable<U> data)
-    {
-        uint requested = (uint)(data?.Count() ?? 0);
-        uint avaliable = (uint)container.Count;
-
-        if (requested > avaliable)
-        {
-            AddTiles(requested - avaliable);
-        }
-        else
-        {
-            HideTilesAfterIndex(requested);
         }
 
-        ShowTilesUntilIndex(requested);
-    }
-
-    private void AddTiles(uint amount)
-    {
-        if (amount > 0)
+        private void HandleRequestSize(in IEnumerable<U> data)
         {
-            T[] tiles = new T[amount];
+            uint requested = (uint)(data?.Count() ?? 0);
+            uint avaliable = (uint)container.Count;
 
-            for (uint i = 0; i < amount; i++)
+            if (requested > avaliable)
             {
-                T tile = diContainer.InstantiatePrefabForComponent<T>(prefab, parent);
-                tiles[i] = tile;
-                initTile?.Invoke(tile);
+                AddTiles(requested - avaliable);
+            }
+            else
+            {
+                HideTilesAfterIndex(requested);
             }
 
-            container.AddRange(tiles);
+            ShowTilesUntilIndex(requested);
         }
-    }
 
-    private void ShowTilesUntilIndex(uint index)
-    {
-        container
-            .Take((int)index)
-            .ForEach(t => onTileToggle(t, true));
-    }
+        private void AddTiles(uint amount)
+        {
+            if (amount > 0)
+            {
+                T[] tiles = new T[amount];
 
-    private void HideTilesAfterIndex(uint index)
-    {
-        container
-            .Skip((int)index)
-            .ForEach(t => onTileToggle(t, false));
+                for (uint i = 0; i < amount; i++)
+                {
+                    tiles[i] = factory.Instantiate<T>(parent);
+                    container?.Add(tiles[i]);
+                    initTile?.Invoke(tiles[i]);
+                }
+            }
+        }
+
+        private void ShowTilesUntilIndex(uint index)
+        {
+            container
+                .Take((int)index)
+                .ForEach(t => onTileToggle(t, true));
+        }
+
+        private void HideTilesAfterIndex(uint index)
+        {
+            container
+                .Skip((int)index)
+                .ForEach(t => onTileToggle(t, false));
+        }
     }
 }

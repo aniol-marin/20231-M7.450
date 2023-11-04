@@ -1,4 +1,4 @@
-using Mole.Halt.PresentationLayer.Models;
+using Mole.Halt.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +7,15 @@ using UnityEngine;
 namespace Mole.Halt.PresentationLayer
 {
     [CreateAssetMenu(menuName = "Mole/Screen Model")]
-    public class ScreensData : ScriptableObject
+    public class ScreensData : DataAsset
     {
-        [SerializeField] private List<ScreenPair> scenes;
+        [SerializeField] private List<ScreenPair> screens;
 
-        public GameObject GetScreenPrefab(ScreenId id)
+        public MenuScreen GetScreenPrefab(ScreenId id)
         {
-            return scenes
+            return screens
                 .First(scenes => scenes.key == id)
-                .screen
-                .gameObject;
+                .screen;
         }
     }
 

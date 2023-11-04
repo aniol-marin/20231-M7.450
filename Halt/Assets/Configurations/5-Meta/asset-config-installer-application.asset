@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1895e2dbf54e7478e910a41313b599, type: 3}
+  m_Name: asset-config-installer-application
+  m_EditorClassIdentifier: 
+  levelsData: {fileID: 11400000, guid: 71a4dfcf79c8ced4ea9b138930a4f786, type: 2}
+  prefabsData: {fileID: 11400000, guid: 1e85e4f7c56e52846886305bfcc8053c, type: 2}
+  scenesData: {fileID: 11400000, guid: 8da297fe2f4069f4eb50a113c7b36add, type: 2}
+  census: {fileID: 11400000, guid: 9087f9841c60beb4a9f84a3f3d41d992, type: 2}

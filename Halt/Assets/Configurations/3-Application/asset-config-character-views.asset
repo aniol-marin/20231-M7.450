@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7145ed8e6c7d4ab3e0b3448dc0d12, type: 3}
+  m_Name: asset-config-character-views
+  m_EditorClassIdentifier: 
+  defaultView:
+    type: 0
+    view: {fileID: 5324560266177500466, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
+  pairs:
+  - type: 1
+    view: {fileID: 4611071758608702200, guid: e448b25fe1d7ca74eb9d9fe85c8e5811, type: 3}
+  - type: 2
+    view: {fileID: 4611071758608702200, guid: 265cdf7a207545745a8174d61f34f2d2, type: 3}

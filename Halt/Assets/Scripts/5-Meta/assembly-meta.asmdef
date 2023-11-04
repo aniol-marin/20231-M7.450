@@ -1,0 +1,26 @@
+{
+    "name": "assembly-installer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22423cafc2250c04db4230971cb23173",
+        "GUID:e3d001121b6cd32409258e738a1d4f9a",
+        "GUID:33b1de0ec0112cf4a949ecfe16e63196",
+        "GUID:3030e67f1b259f14ca06380956227797",
+        "GUID:13a405fe3b4ea89479874010f89bc971",
+        "GUID:800ab6ea8ac99cb43a5e93f071581b25",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:4528bb9854ad183458a93781a2bde128",
+        "GUID:74b0c5f59baea284a99e2ddd115070ec",
+        "GUID:9a27e3927e42cdb4c978b3040cb1bb16",
+        "GUID:f2fbff4d08dd73249a8385a3058f7536"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
