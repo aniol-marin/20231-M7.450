@@ -6,6 +6,7 @@
         "UnityEditor.TestRunner",
         "Mole.Data",
         "Mole.DataAccess",
+        "Mole.DataAccess.Internal",
         "Mole.Utils"
     ],
     "includePlatforms": [

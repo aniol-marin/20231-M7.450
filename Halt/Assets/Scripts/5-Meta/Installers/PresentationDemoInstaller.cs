@@ -13,6 +13,7 @@ namespace Mole.Halt.Meta
         public override void InstallBindings()
         {
             // Presentation
+            Container.Bind<BehaviorStrategy>().AsTransient();
             Container.Bind<Navigation>().AsSingle();
             Container.BindInstance(screensData).Lazy();
 

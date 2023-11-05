@@ -9,18 +9,16 @@ namespace Mole.Halt.GameLogicLayer.Internal
 {
     public class BehaviorStateMachine : BehaviorManager
     {
-        [Injected] private readonly InteractionManager interactions;
-        [Injected] private readonly IQueueManager queue;
         [Injected] private readonly ActivityManager activityManager;
-        private BehaviorType currentBehavior;
-        private EntityId id;
-        private List<Trigger> activeTriggers = new();
+        [Injected] private readonly InteractionManager interactions;
+        [Injected] private readonly IFilterMatchingService service;
+        [Injected] private readonly ITimeline timeline;
         private StateMachineWiring wiring;
+        private State activeState;
+        private readonly List<Trigger> activeTriggers = new();
+        private EntityId id;
         private bool actionTriggered = false;
-
-        public ControllerType Type => ControllerType.stateMachine;
-
-        public event Callback<Position> OnMoveToPositionRequest = delegate { };
+        private Activity activeTask;
 
         public void Initialize(EntityId id, StateMachineWiring wiring)
         {
@@ -30,42 +28,41 @@ namespace Mole.Halt.GameLogicLayer.Internal
             interactions.OnInteractionReported += HandleInteraction;
 
             //Kickstart
-            currentBehavior = wiring.InitialBehavior;
-            Kick();
+            timeline.OnPlay += Start;
         }
 
         public void Deinitialize()
         {
             id = default;
             actionTriggered = false;
+            activityManager.StopActivity(activeTask);
         }
 
-        private void HandleInteraction(EntityId id, Entity target)
+        private void Start()
         {
-            if (this.id == id)
-            {
-                new Error("getting an input");
+            SelectNewState(wiring.InitialBehavior);
+            Kick();
+        }
 
-                // Adapt state before kicking
-                Kick();
-            }
+        private void SelectNewState(BehaviorType behavior)
+        {
+            activityManager.StopActivity(activeTask);
+
+            activeState = wiring
+                .States
+                .Single(s => s.behavior == behavior);
         }
 
         private void Kick()
         {
-            IEnumerable<Reaction> reactions = wiring
-                .States
-                .Single(s => s.behavior == currentBehavior)
-                .Store(out State state)
-                .reactions;
-
             if (!actionTriggered)
             {
                 actionTriggered = true;
-                activityManager.StartActivity(state.activity, id);
-                OrderEvent order = new OrderEvent(state.activity, id);
-                queue.ReportEvent(new OrderEvent(state.activity, id));
+                activeTask = activityManager.StartActivity(activeState.activity, id);
             }
+
+            IEnumerable<Reaction> reactions = activeState
+                .reactions;
 
             IEnumerable<Reaction> matches = reactions
                 .Where(r => r.triggers.Any(t => activeTriggers.Select(t => t.trigger).Contains(t.trigger)));
@@ -85,12 +82,34 @@ namespace Mole.Halt.GameLogicLayer.Internal
                  */
             }
 
-            new Error($"Kicking entity {id} matched {matches.Count()} active triggers");
-
-
             if (wiring.States.Multiple() && reactions.Empty())
             {
                 new Warning($"Entity [{id}]'s state machine reached a dead end");
+            }
+        }
+
+        private void HandleInteraction(EntityId id, Entity target)
+        {
+            if (this.id == id)
+            {
+                // hardcoded
+                if (target.EntityType == EntityType.Object)
+                {
+                    if (activeTriggers
+                        .Where(t => service.Match(target, t.trigger))
+                        .Store(out IEnumerable<Trigger> triggers)
+                        .Any())
+                    {
+                        BehaviorType nextNode = activeState
+                               .reactions
+                               .First(r => r.triggers.Any(t => triggers.Contains(t)))
+                               .consequence;
+
+                        SelectNewState(nextNode);
+                    }
+                }
+
+                Kick();
             }
         }
 

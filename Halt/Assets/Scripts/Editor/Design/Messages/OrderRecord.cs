@@ -10,16 +10,18 @@ namespace Mole.Halt.Design
     public class OrderRecord : Record<OrderEvent>
     {
       [SerializeField] private OrderType type;
+      [SerializeField] private ControllerType controller;
       [SerializeField] private BehaviorType strategy;
       [SerializeField] private EntityId effector;
       [SerializeField] private Position target;
 
-        public override GameEvent GameEvent => @event ?? new OrderEvent(type, effector, target, strategy);
+        public override GameEvent GameEvent => @event ?? new OrderEvent(type, effector, target, controller);
 
         protected override void PopulateInternal(History container)
         {
             @type = @event.type;
-            strategy = @event.strategy;
+            controller = @event.controller;
+            //strategy = @event.strategy;
             effector = @event.effector;
             target = @event.target;
         }

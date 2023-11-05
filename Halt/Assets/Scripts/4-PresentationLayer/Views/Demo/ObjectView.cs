@@ -15,14 +15,14 @@ namespace Mole.Halt.PresentationLayer
         [SerializeField] private ObjectType type;
 
         public IEnumerable<Collider> Colliders => colliders;
+        virtual protected Object Entity => new Object(type);
 
         // TEMP while testing
         private void Awake()
         {
-            Object bench = new(type);
 
-            mapping.Add(bench, colliders);
-            post.FileNewEntity(bench);
+            mapping.Add(Entity, colliders);
+            post.FileNewEntity(Entity);
         }
     }
 }

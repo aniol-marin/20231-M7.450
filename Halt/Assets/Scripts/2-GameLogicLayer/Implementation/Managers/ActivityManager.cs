@@ -1,6 +1,7 @@
 using Mole.Halt.DataAccessLayer;
 using Mole.Halt.DataLayer;
 using Mole.Halt.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,33 +9,43 @@ namespace Mole.Halt.GameLogicLayer.Internal
 {
     public class ActivityManager
     {
+        [Injected] private readonly Allocator allocator;
         [Injected] private readonly IQueueManager queue;
         [Injected] private readonly IObjectRepository objects;
 
-        public void StartActivity(IActivity activity, EntityId effector)
+        public void StopActivity(Activity activity)
         {
-            ActivityData data = activity as ActivityData;
-            switch (activity.activity.GetType().Name)
-            {
-                case nameof(Patrol): StartPatrol(activity as Patrol, effector, data.targets); break;
-                default: new Error($"entity {effector} trying to start a non-implemented activity: {activity.GetType().Name}"); break;
-            }
+            // TO DO
         }
 
-        public void StartPatrol(Patrol patrol, EntityId effector, IEnumerable<EntityFilter> targets)
+        public Activity StartActivity(ProtoActivity data, EntityId effector)
         {
-            // TO DO handle random targets
-            EntityId target = objects.GetAllOfType(ObjectType.path).First().Id;
-            bool exists = objects.TryGet(target, out Path path);
-                
-            if (exists)
+            Activity activity = data.activity.Name switch
             {
-                queue.ReportEvent(new OrderEvent(OrderType.reach, effector, path.ClosestPoint()));
-            }
-            else
+                nameof(Wander) => allocator.Instantiate<Wander>(),
+                nameof(Patrol) => allocator.Instantiate<Patrol>(),
+                _ => throw new NotImplementedException($"type {data.activity.Name} not implemented"),
+            };
+            activity.Initialize(effector);
+
+            switch (activity.GetType().Name)
             {
-                new Error($"Entity {effector} trying to patrol towards an invalid path ({path})");
+                case nameof(Wander):
+                    // no need for extra steps
+                    break;
+                case nameof(Patrol):
+                    Patrol patrol = activity as Patrol;
+                    IEnumerable<DataExchange> exchanges = objects
+                        .GetAllOfType(ObjectType.path)
+                        .Cast<Path>()
+                        .Select(p => p.Data);
+                    patrol.SetData(exchanges.ElementAt(RandomValue.Int(0, exchanges.Count())));
+                    break;
+                default: new Error($"entity {effector} trying to start a non-implemented activity: {activity.GetType().Name}"); break;
             }
+
+            activity.Start();
+            return activity;
         }
     }
 }

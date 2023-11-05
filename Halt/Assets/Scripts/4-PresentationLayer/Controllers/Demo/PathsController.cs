@@ -20,22 +20,20 @@ namespace Mole.Halt.PresentationLayer
             ReportPaths();
         }
 
-        public override void Deinit()
-        {
-        }
+        public override void Deinit() { }
 
         public PathView GetRandomPath()
         {
             return paths
                 .ElementAt(RandomValue.Int(0, paths.Count))
                 .Convert(p => mapping.GetView(p.Id)) as PathView;
-        } 
+        }
 
         private void ReportPaths()
         {
             transform
                 .GetComponentsInChildren<PathView>()
-                .Join(v => new Path())
+                .Join(v => new Path(v.InterestPoints))
                 .SideEffect(t => mapping.Add(t.Item2, t.Item1.Origin))
                 .SideEffect(t => paths.Add(t.Item2))
                 .Select(t => t.Item2)

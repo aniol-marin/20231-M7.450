@@ -38,7 +38,7 @@ namespace Mole.Halt.GameLogicLayer
         }
         private void HandleEvent(GameEvent parameter)
         {
-            if (parameter is RegistrationEvent registration && registration.entity.EntityType == EntityType.Character)
+            if (parameter is RegistrationEvent registration && registration.entity != null && registration.entity.EntityType == EntityType.Character)
             {
                 census.AddEntity(registration.entity.Id);
                 OnCharacterRegistered(registration.entity.Id);

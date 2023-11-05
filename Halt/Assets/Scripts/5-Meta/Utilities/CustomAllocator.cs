@@ -11,7 +11,7 @@ namespace Mole.Halt.Meta
 
         public T Instantiate<T>()
         {
-            T instance = container.Instantiate<T>();
+            T instance = container.Resolve<T>();
 
             /*
             if (instance is Initializable i)

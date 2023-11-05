@@ -1,4 +1,5 @@
 using Mole.Halt.ApplicationLayer;
+using Mole.Halt.GameLogicLayer;
 using Mole.Halt.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ namespace Mole.Halt.PresentationLayer
     {
         [Injected] private readonly ApplicationFinalizer applicationFinalizer;
         [Injected] private readonly SceneChanger sceneChanger;
-        [Injected] private readonly Timeline timeline;
+        [Injected] private readonly ITimeline timeline;
         [Injected] private readonly ILevelLoader levelLoader;
         [Injected] private readonly Levels levels;
         [SerializeField] private Transform levelContainer;

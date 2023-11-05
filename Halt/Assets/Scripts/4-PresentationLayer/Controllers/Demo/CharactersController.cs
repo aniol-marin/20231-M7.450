@@ -63,37 +63,33 @@ namespace Mole.Halt.PresentationLayer
                 .ForEach(c =>
                 {
                     CharacterView.Initializer values = new(
-                        onColliderContactLost: MockLeaveColliderDetection,
-                        onNewColliderDetected: MockEnterColliderDetection,
-                        onSameColliderDetected: MockStayColliderDetection);
+                        onColliderContactLost: HandleColliderExit,
+                        onNewColliderDetected: HandleColliderEnter,
+                        onSameColliderDetected: HandleColliderStay);
 
                     c.view.Init(values);
 
-                    if (c.controller == ControllerType.stateMachine)
-                    {
-                        BehaviorStrategy strategy = instanceProvider.Instantiate<BehaviorStrategy>();
-                        strategy.Initialize(c.character.Id, c.view.GiveOrder);
-                        subcontrollers.Add(c.view, strategy);
-                    }
+                    BehaviorStrategy strategy = instanceProvider.Instantiate<BehaviorStrategy>();
+                    strategy.Initialize(c.character.Id, c.controller, c.view.GiveOrder);
+                    subcontrollers.Add(c.view, strategy);
                 });
         }
 
-        [Mocked]
-        private void MockEnterColliderDetection(EntityId id, Collider collider)
+        private void HandleColliderEnter(EntityId id, Collider collider)
         {
-            if (entityMapping.TryResolve(collider, out Entity other) && other.EntityType == EntityType.Object)
+            if (entityMapping.TryResolve(collider, out Entity other) && other.Id != id)
             {
                 queue.ReportEvent(new InteractionEvent(id, other));
             }
         }
 
         [Mocked]
-        private void MockStayColliderDetection(EntityId id, Collider collider)
+        private void HandleColliderStay(EntityId id, Collider collider)
         {
         }
 
         [Mocked]
-        private void MockLeaveColliderDetection(EntityId id, Collider collider)
+        private void HandleColliderExit(EntityId id, Collider collider)
         {
         }
     }

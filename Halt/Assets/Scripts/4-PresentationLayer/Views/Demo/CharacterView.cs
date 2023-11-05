@@ -1,8 +1,8 @@
 using Mole.Halt.ApplicationLayer;
 using Mole.Halt.DataLayer;
-using Mole.Halt.GameLogicLayer;
 using Mole.Halt.GameLogicLayer.Internal;
 using Mole.Halt.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,26 +11,28 @@ namespace Mole.Halt.PresentationLayer
 {
     public class CharacterView : ViewNode
     {
+        private const float DELAY_SECONDS = 0.1f;
+        private const float PROXIMITY_THRESHOLD = 1.0f;
+
+        [Injected] private readonly Delay delay;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Collider[] colliders;
         [SerializeField] private ColliderView detectionArea;
         [SerializeField] private ColliderView interactionArea;
-        private BehaviorManager behavior;
         public EntityId id;
 
         public IEnumerable<Collider> Colliders => colliders;
 
         public void Init(
             EntityId id,
-            BehaviorManager behavior,
+            float speed,
             Vector3 initialPosition,
             Quaternion initialRotation)
         {
             this.id = id;
-            this.behavior = behavior;
             transform.SetPositionAndRotation(initialPosition, initialRotation);
 
-            behavior.OnMoveToPositionRequest += HandleMoveTo;
+            agent.speed = speed;
         }
 
         public void Init(Initializer values)
@@ -38,23 +40,35 @@ namespace Mole.Halt.PresentationLayer
             detectionArea.Init(() => id, values.onNewColliderDetected, values.onSameColliderDetected, values.onColliderContactLost);
         }
 
-        private void OnDisable()
+        public void GiveOrder(OrderEvent order)
         {
-            if (behavior != null)
+            switch (order.type)
             {
-                behavior.OnMoveToPositionRequest -= HandleMoveTo;
+                case OrderType.reach:
+                    HandleMoveTo(order.target, order.onCompleted);
+                    break;
+                default:
+                    new Error($"entity {id} received invalid order: {order}");
+                    break;
             }
         }
 
-        public void GiveOrder(OrderEvent order)
-        {
-            HandleMoveTo(order.target);
-
-        }
-
-        private void HandleMoveTo(Position position)
+        private void HandleMoveTo(Position position, Callback onComplete)
         {
             agent.destination = position.ToVector3;
+            StartCoroutine(CheckForDestination(onComplete));
+        }
+
+        private IEnumerator CheckForDestination(Callback onComplete = null)
+        {
+            while (Vector3.Distance(transform.position, agent.destination) > PROXIMITY_THRESHOLD)
+            {
+                yield return delay.Seconds(DELAY_SECONDS);
+            }
+
+            onComplete?.Invoke();
+
+            yield break;
         }
 
         public readonly struct Initializer

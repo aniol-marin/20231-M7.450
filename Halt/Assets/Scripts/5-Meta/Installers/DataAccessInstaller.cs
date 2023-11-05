@@ -16,7 +16,7 @@ namespace Mole.Halt.Meta
         public override void InstallBindings()
         {
             // Repositories
-            Container.BindInstance(characterRepository).Lazy();
+            Container.Bind<ICharacterRepository>().FromInstance(characterRepository).Lazy();
             Container.Bind<IObjectRepository>().FromInstance(objectRepository).Lazy();
             Container.BindInstance(wiringData).Lazy();
         }

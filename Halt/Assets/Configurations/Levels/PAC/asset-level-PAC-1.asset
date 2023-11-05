@@ -15,8 +15,45 @@ MonoBehaviour:
   number: 1
   category: 1
   source: 1
-  level: {fileID: 8432679267399896869, guid: a9bac6ffa9fd54d41a9ab2be3d90b621, type: 3}
+  level: {fileID: 5649940115596945218, guid: a9bac6ffa9fd54d41a9ab2be3d90b621, type: 3}
   characters:
   - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
-    initialPosition: {x: 19.950197, y: 0, z: -12.282337}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+    filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 98ef0e76528db9b409271e73a42f3a10, type: 2}
+    filter: {fileID: 11400000, guid: 7d7bdf25086df3d4fa626cc4b5b834ff, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 98ef0e76528db9b409271e73a42f3a10, type: 2}
+    filter: {fileID: 11400000, guid: 7d7bdf25086df3d4fa626cc4b5b834ff, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 98ef0e76528db9b409271e73a42f3a10, type: 2}
+    filter: {fileID: 11400000, guid: 7d7bdf25086df3d4fa626cc4b5b834ff, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
+    initialRotation: {x: -0, y: -0, z: -0, w: 1}
+  - prototype: {fileID: 11400000, guid: 98ef0e76528db9b409271e73a42f3a10, type: 2}
+    filter: {fileID: 11400000, guid: 7d7bdf25086df3d4fa626cc4b5b834ff, type: 2}
+    initialPosition: {x: 0, y: 0, z: 0}
     initialRotation: {x: -0, y: -0, z: -0, w: 1}

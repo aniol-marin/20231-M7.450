@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: asset-entity-character-runner
   m_EditorClassIdentifier: 
   characterType: 1
+  baseSpeed: 12
+  speedVariability: 4

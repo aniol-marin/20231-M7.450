@@ -1,5 +1,4 @@
 using Mole.Halt.ApplicationLayer;
-using Mole.Halt.DataLayer;
 using Mole.Halt.GameLogicLayer;
 using Mole.Halt.GameLogicLayer.Internal;
 using Mole.Halt.Utils;
@@ -28,7 +27,7 @@ namespace Mole.Halt.PresentationLayer
                 .Active
                 .ForEach(e =>
                 {
-                    queue.ReportEvent(new OrderEvent(OrderType.reach, e, position, BehaviorType.mock));
+                    queue.ReportEvent(new OrderEvent(OrderType.reach, e, position, ControllerType.localplayer));
                 });
         }
     }

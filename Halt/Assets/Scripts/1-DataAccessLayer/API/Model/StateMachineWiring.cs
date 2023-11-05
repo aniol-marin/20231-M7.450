@@ -25,11 +25,11 @@ namespace Mole.Halt.DataAccessLayer
     }
 
     [Serializable]
-    public struct State
+    public class State
     {
-        [SerializeField] private ActivityData activityData;
+        [SerializeField] private ProtoActivityData activityData;
         public BehaviorType behavior;
         public List<Reaction> reactions;
-        public IActivity activity => activityData;
+        public ProtoActivity activity => activityData;
     }
 }

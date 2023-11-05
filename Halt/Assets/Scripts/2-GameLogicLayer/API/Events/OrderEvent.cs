@@ -1,35 +1,32 @@
 using Mole.Halt.DataAccessLayer;
 using Mole.Halt.DataLayer;
 using Mole.Halt.Utils;
+using System;
 
 namespace Mole.Halt.GameLogicLayer.Internal
 {
     public class OrderEvent : GameEvent
     {
-        public readonly Activity activity;
+        public readonly DataExchange data;
+        public readonly Type activity;
         public readonly OrderType type;
-        public readonly BehaviorType strategy;
+        public readonly ControllerType controller;
         public readonly EntityId effector;
         public readonly Position target;
+        public readonly Callback onCompleted;
 
-        public OrderEvent(OrderType type, EntityId effector, Position target, BehaviorType strategy = default)
+        public OrderEvent(OrderType type, EntityId effector, Position target, ControllerType controller, Callback onCompleted = null)
         {
             this.type = type;
             this.effector = effector;
             this.target = target;
-            this.strategy = strategy;
+            this.controller = controller;
+            this.onCompleted = onCompleted;
         }
-
-        public OrderEvent(IActivity activityWrapper, EntityId effector)
-        {
-            this.activity = activityWrapper.activity;
-            this.effector = effector;
-        }
-
 
         public override string ToString()
         {
-            return $"event-order-{type}-strategy_{strategy}-effector_{effector}-target_{target}";
+            return $"event-order-{type}-strategy_{controller}-effector_{effector}-target_{target}";
         }
     }
 

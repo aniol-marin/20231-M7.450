@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2234334305751943834, guid: e448b25fe1d7ca74eb9d9fe85c8e5811, type: 3}
+      propertyPath: m_WalkableMask
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6230884104694715255, guid: e448b25fe1d7ca74eb9d9fe85c8e5811, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -82,3 +86,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prototype: {fileID: 11400000, guid: 781721e0c95cbba4ab4995f2213ace28, type: 2}
+  filter: {fileID: 11400000, guid: 30d31eea6d91dc940ae9c57df0612f35, type: 2}

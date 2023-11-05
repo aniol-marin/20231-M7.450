@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: asset-entity-character-pensioner
   m_EditorClassIdentifier: 
   characterType: 2
+  baseSpeed: 2
+  speedVariability: 0.5

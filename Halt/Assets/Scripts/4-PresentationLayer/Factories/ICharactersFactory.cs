@@ -1,4 +1,5 @@
-﻿using Mole.Halt.DataLayer;
+﻿using Mole.Halt.ApplicationLayer;
+using Mole.Halt.DataLayer;
 using Mole.Halt.Utils;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Mole.Halt.PresentationLayer
 {
     public interface ICharactersFactory
     {
-        CharacterView Instantiate(Character character, ControllerType controller, Vector3 position, Quaternion rotation, Transform parent);
+        CharacterView Instantiate(Character character, InitialCharacterData data, Transform parent);
     }
     public readonly struct GeneratedCharacter
     {

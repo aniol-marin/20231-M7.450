@@ -17,7 +17,8 @@ MonoBehaviour:
   mood: 8
   initialBehavior: 2
   states:
-  - behavior: 2
+  - activityData: {fileID: 11400000, guid: b17fa57ef1c4b9249b6c5a3a6cec6ba2, type: 2}
+    behavior: 2
     reactions:
     - consequence: 0
       triggers:
@@ -27,21 +28,15 @@ MonoBehaviour:
           amount: 90
       conditions: []
       targets: []
-  - behavior: 8
+  - activityData: {fileID: 11400000, guid: 6c3db2406965f004db2a087364c01d76, type: 2}
+    behavior: 0
     reactions:
     - consequence: 0
       triggers:
       - trigger: {fileID: 11400000, guid: 7e541509d1b7a90458b2928d78281631, type: 2}
         conditions:
-        - type: 5
-          amount: 0
+        - type: 1
+          amount: 10
       conditions: []
       targets:
       - {fileID: 11400000, guid: 7e541509d1b7a90458b2928d78281631, type: 2}
-  - behavior: 0
-    reactions:
-    - consequence: 2
-      triggers: []
-      conditions:
-      - {fileID: 11400000, guid: 5c9dbdc958784bc408e78370d09c47d6, type: 2}
-      targets: []

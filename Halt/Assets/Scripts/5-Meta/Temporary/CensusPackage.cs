@@ -1,10 +1,11 @@
 using Mole.Halt.ApplicationLayer;
+using Mole.Halt.DataAccessLayer;
 using Mole.Halt.DataLayer;
 using Mole.Halt.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mole.Halt.DataAccessLayer
+namespace Mole.Halt.Meta
 {
     [CreateAssetMenu(menuName = "Mole/Halt/CharacterPackage")]
     public class CensusPackage : DataPackage, ICensusPackage

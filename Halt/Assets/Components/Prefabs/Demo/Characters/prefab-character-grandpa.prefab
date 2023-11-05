@@ -57,10 +57,11 @@ PrefabInstance:
       value: prefab-character-grandpa
       objectReference: {fileID: 0}
     - target: {fileID: 6015636086920914604, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b92b9b49239b85143a07633d287ca1cd, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8406480796212809102, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

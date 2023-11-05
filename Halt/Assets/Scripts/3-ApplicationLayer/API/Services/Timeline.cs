@@ -1,9 +1,10 @@
+using Mole.Halt.GameLogicLayer;
 using Mole.Halt.Utils;
 using System;
 
-namespace Mole.Halt.ApplicationLayer
+namespace Mole.Halt.ApplicationLayer.Internal
 {
-    public class Timeline
+    public class Timeline : ITimeline
     {
         private State status;
 

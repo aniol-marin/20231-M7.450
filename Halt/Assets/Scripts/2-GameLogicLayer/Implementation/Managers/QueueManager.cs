@@ -24,7 +24,10 @@ namespace Mole.Halt.GameLogicLayer.Internal
 
         public void ReportEvent(GameEvent gameEvent)
         {
-            queue.Enqueue(gameEvent);
+            lock (queue)
+            {
+                queue.Enqueue(gameEvent);
+            }
         }
 
 

@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2333425461791202493, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
@@ -56,8 +57,20 @@ PrefabInstance:
       value: prefab-character-runner
       objectReference: {fileID: 0}
     - target: {fileID: 6015636086920914604, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c67095152ea23b646acee51840eccfcf, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 7572944859612185936, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572944859612185936, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
+      propertyPath: m_WalkableMask
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8406480796212809102, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ee555f051e3f04585fe60b0b7b2dcb, type: 3}

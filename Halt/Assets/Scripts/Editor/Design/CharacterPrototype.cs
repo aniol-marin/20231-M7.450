@@ -13,8 +13,10 @@ namespace Mole.Halt.Design
         [Injected] ILevelLoader levelLoader;
         [Injected] Levels levels;
         [SerializeField] private PremadeCharacter prototype;
+        [SerializeField] private CharacterFilter filter;
 
         public PremadeCharacter Prototype => prototype;
+        public CharacterFilter Filter => filter;
 
         private void Awake() // Design time only
         {
@@ -28,6 +30,7 @@ namespace Mole.Halt.Design
                 Prototype = prototype,
                 InitialPosition = transform.position,
                 InitialRotation = transform.rotation,
+                Filter = filter,
             };
 
             levelLoader.RegisterLevelCharacters(new[] { data }, transform.parent);

@@ -67,7 +67,7 @@ namespace Mole.Halt.Meta
                 .ForEach(c =>
                 {
                     Character character = new(c.Prototype.Character, c.Prototype.Mood, c.Prototype.Label);
-                    CharacterView view = charactersFactory.Instantiate(character, c.Prototype.ControllerType, c.InitialPosition, c.InitialRotation, container);
+                    CharacterView view = charactersFactory.Instantiate(character, c, container);
 
                     RegistrationEvent registration = new(character);
                     characterMapping.Add(character, view.Colliders);

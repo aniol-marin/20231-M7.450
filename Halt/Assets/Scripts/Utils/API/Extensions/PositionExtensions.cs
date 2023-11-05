@@ -8,5 +8,9 @@ namespace Mole.Halt.Utils
         {
             return new Position(position);
         }
+        public static float Distance(this Position first, Position second)
+        {
+            return Vector3.Distance(first.ToVector3, second.ToVector3);
+        }
     }
 }

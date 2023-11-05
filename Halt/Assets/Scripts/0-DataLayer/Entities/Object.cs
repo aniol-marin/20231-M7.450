@@ -1,9 +1,14 @@
+using Mole.Halt.Utils;
+
 namespace Mole.Halt.DataLayer
 {
     public class Object : Entity
     {
         public readonly ObjectType Type;
         public readonly string Label;
+
+
+        virtual public DataExchange Data { get; }
 
         public Object(ObjectType type, string label = null) : base(EntityType.Object)
         {

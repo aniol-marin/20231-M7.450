@@ -1,3 +1,4 @@
+using Mole.Halt.GameLogicLayer;
 using Mole.Halt.Utils;
 
 namespace Mole.Halt.ApplicationLayer
@@ -6,6 +7,7 @@ namespace Mole.Halt.ApplicationLayer
     {
         [Injected] private readonly SceneFinalizer finalizer;
         [Injected] private readonly SceneInitializer initializer;
+        [Injected] private readonly EntityManager test;
 
         public override void Deinit()
         {
@@ -13,6 +15,7 @@ namespace Mole.Halt.ApplicationLayer
 
         private void Awake() // Scene entry point
         {
+            test.Init();
             initializer.InitializeScene(this);
         }
 

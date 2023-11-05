@@ -15,4 +15,4 @@ MonoBehaviour:
   label: PAC1 Pensioner
   character: 2
   mood: 8
-  controller: -1
+  controller: 3

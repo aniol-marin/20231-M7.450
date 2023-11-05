@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mole.Halt.PresentationLayer
+namespace Mole.Halt.ApplicationLayer
 {
     public class EventParser // TODO extract interface / base class, split between production and debug parsers
     {
@@ -66,7 +66,7 @@ namespace Mole.Halt.PresentationLayer
                 token = rest.DequeueFirst(out rest);
                 Position pos = ParsePosition(rest);
 
-                order = new OrderEvent(OrderType.reach, id, pos, BehaviorType.mock);
+                order = new OrderEvent(OrderType.reach, id, pos, ControllerType.all);
             }
             catch
             {

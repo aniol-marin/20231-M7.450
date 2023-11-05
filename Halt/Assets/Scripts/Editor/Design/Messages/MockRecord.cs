@@ -1,5 +1,5 @@
+using Mole.Halt.ApplicationLayer;
 using Mole.Halt.GameLogicLayer;
-using Mole.Halt.PresentationLayer;
 using UnityEngine;
 
 namespace Mole.Halt.Design

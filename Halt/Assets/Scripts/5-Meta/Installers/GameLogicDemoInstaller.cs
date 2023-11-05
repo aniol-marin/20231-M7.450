@@ -14,12 +14,20 @@ namespace Mole.Halt.Meta
     {
         public override void InstallBindings()
         {
+            Container.Bind<ActivityManager>().AsSingle();
+            Container.Bind<EntityManager>().AsSingle().NonLazy();
+            Container.Bind<EntityMappingService>().AsSingle();
             Container.Bind<ICensusManager>().To<CensusManager>().AsSingle().NonLazy();
             Container.Bind<InteractionManager>().AsSingle();
-            Container.Bind<ActivityManager>().AsSingle();
             Container.Bind<IQueueManager>().To<QueueManager>().AsSingle();
+            Container.Bind<IFilterMatchingService>().To<FilterMatchingService>().AsSingle();
             Container.Bind<TickProvider>().FromInstance(FindObjectsByType<MonoCoroutineProvider>(sortMode: FindObjectsSortMode.None).First()).AsSingle();
-            Container.Bind<EntityMappingService>().AsSingle();
+            
+            // Activities
+            Container.Bind<Wander>().AsTransient();
+            Container.Bind<Patrol>().AsTransient();
+            Container.Bind<Rest>().AsTransient();
+            
             InstallAI();
         }
 

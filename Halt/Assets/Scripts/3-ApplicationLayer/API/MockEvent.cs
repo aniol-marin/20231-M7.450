@@ -1,6 +1,6 @@
 using Mole.Halt.GameLogicLayer;
 
-namespace Mole.Halt.PresentationLayer
+namespace Mole.Halt.ApplicationLayer
 {
     public class MockEvent : GameEvent
     {
