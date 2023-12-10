@@ -112,7 +112,7 @@ namespace Mole.Halt.Utils
             yield break;
         }
 
-        public static T SideEffect<T>(this T item, Callback<T> predicate)
+        public static T SingleSideEffect<T>(this T item, Callback<T> predicate)
         {
             predicate(item);
 

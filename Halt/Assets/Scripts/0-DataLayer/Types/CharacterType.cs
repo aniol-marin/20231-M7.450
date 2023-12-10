@@ -5,7 +5,7 @@ namespace Mole.Halt.DataLayer
         invalid = default,
         runner,
         pensioner,
-        thieve,
+        thief,
         cop,
     }
 }

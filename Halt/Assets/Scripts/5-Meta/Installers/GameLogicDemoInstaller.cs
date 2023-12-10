@@ -40,6 +40,7 @@ namespace Mole.Halt.Meta
 
             // All the values
             Container.Bind<BehaviorManager>().WithId(ControllerType.stateMachine).To<BehaviorStateMachine>().AsTransient();
+            Container.Bind<BehaviorManager>().WithId(ControllerType.localplayer).To<UserBehaviorManager>().AsTransient();
         }
     }
 }

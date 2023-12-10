@@ -69,7 +69,7 @@ namespace Mole.Halt.GameLogicLayer.Internal
 
             matches
                 .FirstOrDefault(triggered)?
-                .SideEffect(HandleTriggeredReactions);
+                .SingleSideEffect(HandleTriggeredReactions);
 
             bool triggered(Reaction reaction)
             {

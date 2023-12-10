@@ -47,6 +47,17 @@ namespace Mole.Halt.ApplicationLayer
             return views.TryGetValue(id, out ViewNode view) ? view : throw new Exception("inexistent entity view");
         }
 
+        public CharacterType GetCharacterType(ViewNode view)
+        {
+            return collideables
+                .Values
+                .Where(e => e.Id == view.Id)
+                .Cast<Character>()
+                .FirstOrDefault()?
+                .CharacterType
+                ?? default;
+        }
+
         public Position GetPathOrigin(Path path) => paths.GetValueOrDefault(path);
     }
 }

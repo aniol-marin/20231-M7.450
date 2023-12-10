@@ -20,3 +20,7 @@ MonoBehaviour:
     view: {fileID: 4611071758608702200, guid: e448b25fe1d7ca74eb9d9fe85c8e5811, type: 3}
   - type: 2
     view: {fileID: 4611071758608702200, guid: 265cdf7a207545745a8174d61f34f2d2, type: 3}
+  - type: 3
+    view: {fileID: 4611071758608702200, guid: d55a3a18091536049a009111cebc6f56, type: 3}
+  - type: 4
+    view: {fileID: 4611071758608702200, guid: e759af55e2e4cec409c3e548722d3d82, type: 3}

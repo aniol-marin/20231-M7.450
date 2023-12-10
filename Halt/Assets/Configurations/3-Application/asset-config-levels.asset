@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45424cdae6cd25469eb79654ab2ce2b, type: 3}
   m_Name: asset-config-levels
   m_EditorClassIdentifier: 
-  levelDesign: {fileID: 11400000, guid: f0b2029858ee9fb49aaced8de1e594d3, type: 2}
+  levelDesign: {fileID: 11400000, guid: facbbb601c3e21c4eb62fb627c5901aa, type: 2}
   builtInLevels:
   - {fileID: 11400000, guid: f0b2029858ee9fb49aaced8de1e594d3, type: 2}
+  - {fileID: 11400000, guid: facbbb601c3e21c4eb62fb627c5901aa, type: 2}

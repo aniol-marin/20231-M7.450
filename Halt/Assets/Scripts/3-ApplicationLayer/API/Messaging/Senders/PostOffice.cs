@@ -13,6 +13,11 @@ namespace Mole.Halt.ApplicationLayer
         {
             queueManager.ReportEvent(new RegistrationEvent(entity));
         }
+
+        public void Mock()
+        {
+            new Error("working");
+        }
     }
 
     public enum RequestType

@@ -1,0 +1,21 @@
+using Pada1.BBCore;
+using Pada1.BBCore.Framework;
+
+namespace Mole.Halt.PresentationLayer
+{
+    [Action("Mole/#SCRIPTNAME#")]
+    public class #SCRIPTNAME# : BasePrimitiveAction
+    {
+        [InParam("Owner Id")]
+        public int id;
+        
+        public override void OnStart()
+        {
+            base.OnStart();
+        }
+        public override void OnEnd()
+        {
+            base.OnEnd();
+        }
+    }
+}

@@ -2,6 +2,7 @@ using Mole.Halt.ApplicationLayer;
 using Mole.Halt.DataLayer;
 using Mole.Halt.GameLogicLayer.Internal;
 using Mole.Halt.Utils;
+using Pada1.BBEditor.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +20,13 @@ namespace Mole.Halt.PresentationLayer
         [SerializeField] private Collider[] colliders;
         [SerializeField] private ColliderView detectionArea;
         [SerializeField] private ColliderView interactionArea;
+        [SerializeField] private int justiceId;
         public EntityId id;
 
         public IEnumerable<Collider> Colliders => colliders;
+
+        public override EntityId Id => id;
+        public int JusticeId => justiceId;
 
         public void Init(
             EntityId id,
@@ -38,6 +43,16 @@ namespace Mole.Halt.PresentationLayer
         public void Init(Initializer values)
         {
             detectionArea.Init(() => id, values.onNewColliderDetected, values.onSameColliderDetected, values.onColliderContactLost);
+        }
+
+        public void SetChaseTarget(Transform transform)
+        {
+            StartCoroutine(Chase(transform));
+        }
+
+        IEnumerator Chase(Transform transform)
+        {
+            yield break;
         }
 
         public void GiveOrder(OrderEvent order)
